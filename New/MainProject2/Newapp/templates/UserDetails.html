@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="text-align:center;">
+    <h2>User Details</h2>
+
+</div>
+<div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Inverse table</h4>
+                  <p class="card-description">
+                    Add class <code>.table-dark</code>
+                  </p>
+                  <div class="table-responsive pt-3">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th>
+                              Firstname
+                          </th>
+                          <th>
+                            Lastname
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Address
+                          </th>
+                          <th>
+                             City
+                          </th>
+                          <th>
+                              Country
+                          </th>
+                          <th>
+                              Telephone
+                          </th>
+                          <th>
+                              Message
+                          </th>
+                          <th>
+                             Delete option
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for k in use %}
+                        <tr>
+                          <td>
+                            {{k.Firstname}}
+                          </td>
+                          <td>
+                             {{k.Lastname}}
+                          </td>
+                          <td>
+                             {{k.Email}}
+                          </td>
+                          <td>
+                             {{k.Address}}
+                          </td>
+                          <td>
+                             {{k.City}}
+                          </td>
+                          <td>
+                              {{k.Country}}
+                          </td>
+                          <td>
+                             {{k.Telephone}}
+                          </td>
+                          <td>
+                             {{k.Message}}
+                          </td>
+                          <td>
+                             <form action="{% url 'can_details' canid=k.id %}">
+                                 <button type="submit" class="btn btn-danger btn-rounded btn-fw">Delete</button>
+                             </form>
+                          </td>
+                        </tr>
+                      {% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+</body>
+</html>
+{% endblock %}
